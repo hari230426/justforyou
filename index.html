@@ -85,6 +85,7 @@
     <button class="button" onclick="showFlower()">Tekan pertama</button>
     <a href="bunga.html"><button class="button">Tekan kedua</button></a>
     <div id="flower-container"></div><script>
+        <audio id="background-music" src="lagu.mp3" autoplay onloadeddata="this.play(); this.onended = null;"></audio>
     const lyricsText = "Sungguh, ku tak ingin Hatiku jadi milik yang lainnya Ku bersumpah, kau sosok yang tak mungkin Kutemukan lagi";
     const lyricsContainer = document.getElementById("lyrics");
     const words = lyricsText.split(" ");
