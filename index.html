@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lirik Lagu - Jangan Hilangkan Dia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #a8edea, #fed6e3, #89f7fe, #66a6ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 6s ease infinite;
+            text-align: center;
+            padding: 50px;
+            color: white;
+            position: relative;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+        }
+        .lyrics {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .word {
+            opacity: 0;
+            display: inline-block;
+            animation: fadeInWord 0.5s forwards;
+            margin-right: 5px;
+            padding: 5px 6px;
+            margin-top: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 5px;
+        }
+        @keyframes fadeInWord {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .birthday-message {
+            font-size: 20px;
+            margin-top: 30px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.8);
+            color: #ff4081;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, pink, red);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: bloom 1.5s forwards;
+        }
+        @keyframes bloom {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1.5); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Apriliani</h1>
+    <p class="lyrics" id="lyrics"></p>
+    <div class="birthday-message">Terima kasih selalu nemenin aku kalau main ke perpus ✨</div>
+    <button class="button" onclick="showFlower()">Tekan pertama</button>
+    <a href="bunga.html"><button class="button">Tekan kedua</button></a>
+    <div id="flower-container"></div><script>
+    const lyricsText = "Sungguh, ku tak ingin Hatiku jadi milik yang lainnya Ku bersumpah, kau sosok yang tak mungkin Kutemukan lagi";
+    const lyricsContainer = document.getElementById("lyrics");
+    const words = lyricsText.split(" ");
+
+    words.forEach((word, index) => {
+        let span = document.createElement("span");
+        span.textContent = word;
+        span.classList.add("word");
+        span.style.animationDelay = `${index * 0.5}s`;
+        lyricsContainer.appendChild(span);
+    });
+
+    function showFlower() {
+        const flowerContainer = document.getElementById("flower-container");
+        let flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.style.left = `${Math.random() * 80 + 10}%`;
+        flower.style.top = `${Math.random() * 60 + 20}%`;
+        document.body.appendChild(flower);
+        setTimeout(() => { flower.remove(); }, 2000);
+    }
+</script>
+
+</body>
+</html>
