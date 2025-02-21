@@ -84,10 +84,18 @@
     <div class="birthday-message">Terima kasih selalu nemenin aku kalau main ke perpus ✨</div>
     <button class="button" onclick="showFlower()">Tekan pertama</button>
     <a href="bunga.html"><button class="button">Tekan kedua</button></a>
-    <div id="flower-container"></div><script>
-    <audio autoplay muted>
-  <source src="lagu.mp3" type="audio/mp3">
+    <audio id="myAudio">
+  <source src="lagu.mp3" type="audio/mpeg">
 </audio>
+
+<button class="button" onclick="playAudio()">Putar Musik</button>
+
+<script>
+  function playAudio() {
+    document.getElementById("myAudio").play();
+  }
+</script>
+    <div id="flower-container"></div><script>
     const lyricsText = "Sungguh, ku tak ingin Hatiku jadi milik yang lainnya Ku bersumpah, kau sosok yang tak mungkin Kutemukan lagi";
     const lyricsContainer = document.getElementById("lyrics");
     const words = lyricsText.split(" ");
