@@ -28,6 +28,7 @@
         .lyrics {
             font-size: 18px;
             margin-top: 20px;
+            visibility: hidden;
         }
         .word {
             opacity: 0;
@@ -79,38 +80,38 @@
     </style>
 </head>
 <body>
-    <h1>Apriliani</h1>
+    <h1>Aprilliani</h1>
     <p class="lyrics" id="lyrics"></p>
     <div class="birthday-message">Terima kasih selalu nemenin aku kalau main ke perpus ✨</div>
+     <button class="button" onclick="playAudio()">Putar Musik</button>
     <button class="button" onclick="showFlower()">Tekan pertama</button>
-    <a href="bunga.html"><button class="button">Tekan kedua</button></a>
+    <a href="aset/bunga.html"><button class="button">Tekan kedua</button></a>
+  
     <audio id="myAudio">
-  <source src="lagu.mp3" type="audio/mpeg">
-</audio>
+        <source src="lagu.mp3" type="audio/mpeg">
+    </audio><script>
+    function playAudio() {
+        document.getElementById("myAudio").play();
+        showLyrics();
+    }
 
-<button class="button" onclick="playAudio()">Putar Musik</button>
-
-<script>
-  function playAudio() {
-    document.getElementById("myAudio").play();
-  }
-</script>
-    <div id="flower-container"></div><script>
-    const lyricsText = "Sungguh, ku tak ingin Hatiku jadi milik yang lainnya Ku bersumpah, kau sosok yang tak mungkin Kutemukan lagi";
-    const lyricsContainer = document.getElementById("lyrics");
-    const words = lyricsText.split(" ");
-
-    words.forEach((word, index) => {
-        let span = document.createElement("span");
-        span.textContent = word;
-        span.classList.add("word");
-        span.style.animationDelay = `${index * 0.5}s`;
-        lyricsContainer.appendChild(span);
-    });
+    function showLyrics() {
+        const lyricsText = "Sungguh, ku tak ingin Hatiku jadi milik yang lainnya Ku bersumpah, kau sosok yang tak mungkin Kutemukan lagi";
+        const lyricsContainer = document.getElementById("lyrics");
+        lyricsContainer.innerHTML = "";    
+        lyricsContainer.style.visibility = "visible";
+        const words = lyricsText.split(" ");
+        words.forEach((word, index) => {
+            let span = document.createElement("span");
+            span.textContent = word;
+            span.classList.add("word");
+            span.style.animationDelay = `${index * 1.2}s`;
+            lyricsContainer.appendChild(span);
+        });
+    }
 
     function showFlower() {
-        const flowerContainer = document.getElementById("flower-container");
-        let flower = document.createElement("div");
+        const flower = document.createElement("div");
         flower.classList.add("flower");
         flower.style.left = `${Math.random() * 80 + 10}%`;
         flower.style.top = `${Math.random() * 60 + 20}%`;
